@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FutureLearn App</title>
+
+<style>
+*{
+margin:0;padding:0;box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:15px 30px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+position:sticky;top:0;
+}
+
+nav a{
+color:white;text-decoration:none;margin:0 10px;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.container{
+max-width:1100px;margin:auto;padding:20px;
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+border-radius:20px;
+padding:20px;
+box-shadow:0 8px 30px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+}
+
+.card img{
+width:100%;
+height:150px;
+border-radius:15px;
+object-fit:cover;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:20px;
+background:#00b4d8;
+color:white;
+cursor:pointer;
+margin-top:10px;
+}
+
+textarea,input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:none;
+outline:none;
+}
+
+/* NOTES */
+.note{
+background:rgba(255,255,255,0.1);
+padding:10px;
+border-radius:10px;
+margin:10px 0;
+}
+
+/* FOOTER */
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>FutureLearn</h2>
+<div>
+<a href="ai.html">AI</a>
+<a href="economy.html">Economy</a>
+<a href="web.html">Web</a>
+<a href="digital.html">Digital</a>
+</div>
+</nav>
+
+<div class="hero">
+<h1>FutureLearn 🚀</h1>
+<p>Modern Learning Platform</p>
+</div>
+
+<div class="container">
+
+<!-- DASHBOARD -->
+<h2>Dashboard 📊</h2>
+<div class="card">
+<p>Total Notes: <span id="totalNotes">0</span></p>
+</div>
+
+<!-- TOPICS -->
+<h2>Explore</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1677442136019-21780ecad995">
+<h3>AI</h3>
+<p>Learn Artificial Intelligence</p>
+<a href="ai.html"><button>Open</button></a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1559526324-593bc073d938">
+<h3>Economy</h3>
+<p>Understand economics deeply</p>
+<a href="economy.html"><button>Open</button></a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+<h3>Web Dev</h3>
+<p>Build websites like a pro</p>
+<a href="web.html"><button>Open</button></a>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+<h3>Digital</h3>
+<p>Explore digital world</p>
+<a href="digital.html"><button>Open</button></a>
+</div>
+
+</div>
+
+<!-- NOTES -->
+<h2>Notes 📝</h2>
+
+<input id="search" placeholder="Search notes..." oninput="searchNotes()">
+<textarea id="noteInput" placeholder="Write something..."></textarea>
+<button onclick="addNote()">Add Note</button>
+
+<div id="notesContainer"></div>
+
+<!-- QUIZ -->
+<h2>Quiz 🎓</h2>
+
+<div class="card">
+<p>What does AI stand for?</p>
+
+<button onclick="checkAnswer('a','a')">Artificial Intelligence</button>
+<button onclick="checkAnswer('a','b')">Automatic Internet</button>
+<button onclick="checkAnswer('a','c')">Advanced Input</button>
+
+<p id="quizResult"></p>
+</div>
+
+<!-- SEARCH -->
+<h2>Search 🔍</h2>
+<input onkeyup="globalSearch(this.value)" placeholder="Search topic...">
+<p id="searchResult"></p>
+
+</div>
+
+<footer>
+<p>© 2026 FutureLearn</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
